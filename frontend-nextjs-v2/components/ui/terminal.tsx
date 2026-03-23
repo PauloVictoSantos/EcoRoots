@@ -75,6 +75,7 @@ export function Terminal({ commands, outputs = {}, typingSpeed = 50, delayBetwee
         ))}
         {typing && (
           <div className="text-white leading-relaxed">
+            
             <span className="text-[#58D68D] mr-2">$</span>
             {typing}
             <motion.span animate={{ opacity: [1, 0] }} transition={{ repeat: Infinity, duration: 0.7 }}
