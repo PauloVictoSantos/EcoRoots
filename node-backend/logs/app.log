@@ -55,3 +55,19 @@
 2026-03-22 10:59:53 | http    | [0mGET /dashboard [32m200[0m 480.444 ms - 105[0m
 2026-03-22 10:59:55 | info    | Client connected: %s (total: %d)
 2026-03-22 11:00:31 | info    | Client disconnected: %s (%s)
+2026-03-23 12:06:27 | info    | Socket.IO server initialized
+2026-03-23 12:06:27 | info    | ═══════════════════════════════════════════════
+2026-03-23 12:06:27 | info    |   🌿 Smart Greenhouse Backend running
+2026-03-23 12:06:27 | info    |   Port     : 3000
+2026-03-23 12:06:27 | info    |   Env      : development
+2026-03-23 12:06:27 | info    |   Python AI: http://localhost:8000
+2026-03-23 12:06:27 | info    |   Gemini AI: configured
+2026-03-23 12:06:27 | info    | ═══════════════════════════════════════════════
+2026-03-23 12:07:46 | info    | Socket.IO server initialized
+2026-03-23 12:07:46 | info    | ═══════════════════════════════════════════════
+2026-03-23 12:07:46 | info    |   🌿 Smart Greenhouse Backend running
+2026-03-23 12:07:46 | info    |   Port     : 3000
+2026-03-23 12:07:46 | info    |   Env      : development
+2026-03-23 12:07:46 | info    |   Python AI: http://localhost:8000
+2026-03-23 12:07:46 | info    |   Gemini AI: configured
+2026-03-23 12:07:46 | info    | ═══════════════════════════════════════════════
