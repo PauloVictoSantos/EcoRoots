@@ -1,0 +1,75 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model SensorData {
+  id           Int      @id @default(autoincrement())
+  temperature  Float
+  humidity     Float
+  soilMoisture Float
+  createdAt    DateTime @default(now())
+
+  image        Image?
+
+  @@map("sensor_data")
+}
+
+model Image {
+  id           Int        @id @default(autoincrement())
+  path         String
+  originalName String?
+  sizeBytes    Int?
+  createdAt    DateTime   @default(now())
+
+  sensorDataId Int        @unique
+  sensorData   SensorData @relation(fields: [sensorDataId], references: [id], onDelete: Cascade)
+
+  analysis     Analysis?
+
+  @@map("images")
+}
+
+model Analysis {
+  id           Int      @id @default(autoincrement())
+  plant        String   @default("Unknown")
+  hasPest      Boolean  @default(false)
+  pestType     String?
+  hasDisease   Boolean  @default(false)
+  diseaseType  String?
+  damageType   String   @default("none")
+  severity     String   @default("low")
+  confidence   Float    @default(0)
+  leafCondition String  @default("healthy")
+  riskLevel    String   @default("low")
+  urgencyDays  Int      @default(7)
+  createdAt    DateTime @default(now())
+
+  imageId      Int      @unique
+  image        Image    @relation(fields: [imageId], references: [id], onDelete: Cascade)
+
+  insight      Insight?
+
+  @@map("analyses")
+}
+
+model Insight {
+  id                      Int      @id @default(autoincrement())
+  summary                 String   @db.Text
+  recommendations         Json
+  riskLevel               String
+  urgencyDays             Int
+  estimatedLoss           String
+  irrigationRecommendation Boolean @default(true)
+  alert                   String   @default("none")
+  createdAt               DateTime @default(now())
+
+  analysisId              Int      @unique
+  analysis                Analysis @relation(fields: [analysisId], references: [id], onDelete: Cascade)
+
+  @@map("insights")
+}

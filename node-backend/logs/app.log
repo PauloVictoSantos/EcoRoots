@@ -1,0 +1,57 @@
+2026-03-22 10:11:51 | info    | Socket.IO server initialized
+2026-03-22 10:11:51 | info    | ═══════════════════════════════════════════════
+2026-03-22 10:11:51 | info    |   🌿 Smart Greenhouse Backend running
+2026-03-22 10:11:51 | info    |   Port     : 3000
+2026-03-22 10:11:51 | info    |   Env      : development
+2026-03-22 10:11:51 | info    |   Python AI: http://localhost:8000
+2026-03-22 10:11:51 | info    |   Gemini AI: configured
+2026-03-22 10:11:51 | info    | ═══════════════════════════════════════════════
+2026-03-22 10:16:58 | info    | Socket.IO server initialized
+2026-03-22 10:16:58 | info    | ═══════════════════════════════════════════════
+2026-03-22 10:16:58 | info    |   🌿 Smart Greenhouse Backend running
+2026-03-22 10:16:58 | info    |   Port     : 3000
+2026-03-22 10:16:58 | info    |   Env      : development
+2026-03-22 10:16:58 | info    |   Python AI: http://localhost:8000
+2026-03-22 10:16:58 | info    |   Gemini AI: configured
+2026-03-22 10:16:58 | info    | ═══════════════════════════════════════════════
+2026-03-22 10:23:34 | info    | Socket.IO server initialized
+2026-03-22 10:23:34 | info    | ═══════════════════════════════════════════════
+2026-03-22 10:23:34 | info    |   🌿 Smart Greenhouse Backend running
+2026-03-22 10:23:34 | info    |   Port     : 3000
+2026-03-22 10:23:34 | info    |   Env      : development
+2026-03-22 10:23:34 | info    |   Python AI: http://localhost:8000
+2026-03-22 10:23:34 | info    |   Gemini AI: configured
+2026-03-22 10:23:34 | info    | ═══════════════════════════════════════════════
+2026-03-22 10:24:55 | info    | Client connected: %s (total: %d)
+2026-03-22 10:24:56 | http    | [0mGET /dashboard [32m200[0m 722.510 ms - 105[0m
+2026-03-22 10:24:56 | http    | [0mGET /dashboard [36m304[0m 8.720 ms - -[0m
+2026-03-22 10:24:56 | http    | [0mGET /dashboard [32m200[0m 6.517 ms - 105[0m
+2026-03-22 10:25:18 | info    | Client disconnected: %s (%s)
+2026-03-22 10:25:18 | http    | [0mGET /dashboard [32m200[0m 50.673 ms - 105[0m
+2026-03-22 10:25:18 | http    | [0mGET /dashboard [32m200[0m 45.543 ms - 105[0m
+2026-03-22 10:25:19 | info    | Client connected: %s (total: %d)
+2026-03-22 10:30:30 | info    | Client disconnected: %s (%s)
+2026-03-22 10:30:30 | info    | Client connected: %s (total: %d)
+2026-03-22 10:30:31 | http    | [0mGET /dashboard [32m200[0m 612.789 ms - 105[0m
+2026-03-22 10:30:31 | http    | [0mGET /dashboard [36m304[0m 10.458 ms - -[0m
+2026-03-22 10:30:31 | http    | [0mGET /dashboard [32m200[0m 20.248 ms - 105[0m
+2026-03-22 10:30:33 | info    | Client disconnected: %s (%s)
+2026-03-22 10:30:33 | http    | [0mGET /dashboard [32m200[0m 29.839 ms - 105[0m
+2026-03-22 10:30:34 | http    | [0mGET /dashboard [36m304[0m 25.215 ms - -[0m
+2026-03-22 10:30:34 | http    | [0mGET /dashboard [32m200[0m 6.127 ms - 105[0m
+2026-03-22 10:30:34 | info    | Client connected: %s (total: %d)
+2026-03-22 10:42:13 | info    | Client disconnected: %s (%s)
+2026-03-22 10:43:17 | http    | [0mGET /dashboard [32m200[0m 511.920 ms - 105[0m
+2026-03-22 10:43:18 | info    | Client connected: %s (total: %d)
+2026-03-22 10:43:42 | info    | Client disconnected: %s (%s)
+2026-03-22 10:43:44 | http    | [0mGET /dashboard [32m200[0m 22.573 ms - 105[0m
+2026-03-22 10:43:44 | info    | Client connected: %s (total: %d)
+2026-03-22 10:43:51 | http    | [0mGET /dashboard [32m200[0m 5.178 ms - 105[0m
+2026-03-22 10:43:55 | http    | [0mGET /dashboard [32m200[0m 14.740 ms - 105[0m
+2026-03-22 10:46:33 | info    | Client disconnected: %s (%s)
+2026-03-22 10:46:39 | http    | [0mGET /dashboard [32m200[0m 189.632 ms - 105[0m
+2026-03-22 10:46:40 | info    | Client connected: %s (total: %d)
+2026-03-22 10:59:44 | info    | Client disconnected: %s (%s)
+2026-03-22 10:59:53 | http    | [0mGET /dashboard [32m200[0m 480.444 ms - 105[0m
+2026-03-22 10:59:55 | info    | Client connected: %s (total: %d)
+2026-03-22 11:00:31 | info    | Client disconnected: %s (%s)
