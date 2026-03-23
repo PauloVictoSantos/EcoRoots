@@ -15,7 +15,7 @@ AI-powered IoT greenhouse monitoring with real-time plant health analysis using 
 │                              │                                   │
 │                              ▼                                   │
 │                       LLM Insights                               │
-│                       (Claude/OpenAI)                            │
+│                       (Gemini IA)                                │
 │                              │                                   │
 │                              ▼                                   │
 │                         MySQL DB                                 │
