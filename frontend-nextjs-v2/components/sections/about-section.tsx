@@ -48,7 +48,7 @@ export function AboutSection() {
             className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-balance"
           >
             Tecnologia Inspirada na{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#58D68D] to-[#1E8449]">
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-[#58D68D] to-[#1E8449]">
               Floresta Amazônica
             </span>
           </motion.h2>
@@ -125,7 +125,7 @@ export function AboutSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.3 }}
-                className="col-span-2 p-6 rounded-2xl bg-gradient-to-br from-[#0B3D2E] to-[#145A32] text-center"
+                className="col-span-2 p-6 rounded-2xl bg-linear-to-br from-[#0B3D2E] to-[#145A32] text-center"
               >
                 <span className="text-5xl font-bold text-[#58D68D]">98%</span>
                 <p className="text-sm text-foreground/80 mt-2">Precisão dos Sensores</p>

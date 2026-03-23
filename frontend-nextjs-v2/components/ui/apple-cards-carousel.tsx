@@ -91,7 +91,7 @@ export const Card = ({ card, index, layout = false }: { card: CardData; index: n
               onClick={() => { setOpen(false); onCardClose(index); }}
               className="absolute inset-0 bg-black/80 backdrop-blur-sm" />
             <motion.div ref={containerRef} layoutId={layout ? `card-${card.title}` : undefined}
-              className="relative z-[60] m-4 max-h-[90vh] max-w-3xl w-full overflow-y-auto rounded-3xl bg-[#111] border border-[#58D68D]/15 shadow-2xl">
+              className="relative z-60 m-4 max-h-[90vh] max-w-3xl w-full overflow-y-auto rounded-3xl bg-[#111] border border-[#58D68D]/15 shadow-2xl">
               <button onClick={() => { setOpen(false); onCardClose(index); }}
                 className="sticky top-4 right-4 ml-auto flex h-8 w-8 items-center justify-center rounded-full bg-[#1a1a1a] border border-white/10 z-50 float-right mr-4">
                 <X className="h-4 w-4 text-[#9CA3AF]" />
@@ -106,8 +106,8 @@ export const Card = ({ card, index, layout = false }: { card: CardData; index: n
         )}
       </AnimatePresence>
       <motion.button onClick={() => setOpen(true)} layoutId={layout ? `card-${card.title}` : undefined}
-        className="relative z-10 flex h-80 w-56 flex-col items-start justify-start overflow-hidden rounded-3xl bg-[#111] border border-white/6 hover:border-[#58D68D]/20 transition-all duration-300 md:h-[40rem] md:w-96">
-        <div className="absolute inset-x-0 top-0 z-30 h-full bg-gradient-to-b from-black/50 via-transparent to-black/60 pointer-events-none" />
+        className="relative z-10 flex h-80 w-56 flex-col items-start justify-start overflow-hidden rounded-3xl bg-[#111] border border-white/6 hover:border-[#58D68D]/20 transition-all duration-300 md:h-160 md:w-96">
+        <div className="absolute inset-x-0 top-0 z-30 h-full bg-linear-to-b from-black/50 via-transparent to-black/60 pointer-events-none" />
         <div className="relative z-40 p-8">
           <motion.p layoutId={layout ? `category-${card.title}` : undefined}
             className="text-left font-sans text-sm font-medium text-[#58D68D]">{card.category}</motion.p>

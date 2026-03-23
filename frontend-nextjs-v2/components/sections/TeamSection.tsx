@@ -1,7 +1,6 @@
 "use client";
 import { Carousel, Card } from "@/components/ui/apple-cards-carousel";
 import { motion } from "motion/react";
-import { Code, Cpu, Brain, Monitor, Leaf, Database } from "lucide-react";
 
 function MemberDetail({ role, skills, bio, color }: { role: string; skills: string[]; bio: string; color: string }) {
   return (

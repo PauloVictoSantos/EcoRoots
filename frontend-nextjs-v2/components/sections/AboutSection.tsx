@@ -6,8 +6,6 @@ import { motion, useScroll, useTransform, useInView } from 'framer-motion'
 import { Shield, Brain, ArrowRight, Cpu, Globe, 
 } from 'lucide-react'
 
-
-// ── Shared animations ─────────────────────────────────────────────────────────
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 32 },
   whileInView: { opacity: 1, y: 0 },
@@ -66,7 +64,6 @@ export default function AboutSection() {
             </motion.div>
           </div>
 
-          {/* Parallax visual */}
           <motion.div style={{ y: imgY }} className="relative">
             <div className="relative rounded-2xl overflow-hidden border border-[#58D68D]/15 bg-linear-to-br from-[#0B3D2E] to-[#0a0a0a]">
               <div className="p-8 grid grid-cols-2 gap-4">

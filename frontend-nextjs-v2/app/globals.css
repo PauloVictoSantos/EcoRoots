@@ -4,9 +4,8 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Amazon-inspired Dark Theme */
-  --background: #0A0A0A;
-  --foreground: #EAEAEA;
+  --background: #EAEAEA;
+  --foreground: #0A0A0A;
   --card: #1C1C1C;
   --card-foreground: #EAEAEA;
   --popover: #1C1C1C;
