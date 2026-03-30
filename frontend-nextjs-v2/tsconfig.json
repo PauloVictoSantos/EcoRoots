@@ -34,7 +34,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts"
-  ],
+, "components/sections/estufa.jsx", "components/greenhouse/greenhouse-3d.jsx"  ],
   "exclude": [
     "node_modules"
   ]

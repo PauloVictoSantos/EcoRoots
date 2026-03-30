@@ -4,20 +4,20 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: #EAEAEA;
-  --foreground: #0A0A0A;
-  --card: #1C1C1C;
+  --background: #F8F8F8;
+  --foreground: #0F0F0F;
+  --card: #9e9e9e;
   --card-foreground: #EAEAEA;
   --popover: #1C1C1C;
   --popover-foreground: #EAEAEA;
-  --primary: #1E8449;
+  --primary: #5DD62C;
   --primary-foreground: #EAEAEA;
-  --secondary: #145A32;
+  --secondary: #337418;
   --secondary-foreground: #EAEAEA;
   --muted: #1C1C1C;
-  --muted-foreground: #9CA3AF;
+  --muted-foreground: #686c72;
   --accent: #58D68D;
-  --accent-foreground: #0A0A0A;
+  --c: #0A0A0A;
   --destructive: #DC2626;
   --destructive-foreground: #EAEAEA;
   --border: rgba(88, 214, 141, 0.15);
@@ -30,9 +30,8 @@
   --chart-5: #2ECC71;
   --radius: 1rem;
 
-  /* Custom Amazon Colors */
-  --amazon-dark: #0B3D2E;
-  --amazon-forest: #145A32;
+  --amazon-dark: #5DD62C;
+  --amazon-forest: #337418;
   --amazon-accent: #1E8449;
   --amazon-highlight: #58D68D;
   --amazon-glow: rgba(88, 214, 141, 0.3);
@@ -51,8 +50,8 @@
   --secondary-foreground: #EAEAEA;
   --muted: #1C1C1C;
   --muted-foreground: #9CA3AF;
-  --accent: #58D68D;
-  --accent-foreground: #0A0A0A;
+  --accent: #1E8449;
+  --accent-foreground: #EAEAEA;
   --destructive: #DC2626;
   --destructive-foreground: #EAEAEA;
   --border: rgba(88, 214, 141, 0.15);

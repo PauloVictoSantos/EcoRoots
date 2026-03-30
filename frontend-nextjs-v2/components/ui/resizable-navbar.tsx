@@ -253,8 +253,8 @@ export const NavbarLogo = () => (
     <motion.div whileHover={{ scale: 1.08, rotate: 5 }} transition={{ type: "spring", stiffness: 400 }}>
       <LeafLogoIcon />
     </motion.div>
-    <span className="font-bold text-sm tracking-tight text-white group-hover:text-[#58D68D] transition-colors">
-      Smart<span className="text-[#58D68D]">Greenhouse</span>
+    <span className="font-bold text-sm tracking-tight text-[#58D68D] group-hover:text-[#58D68D] transition-colors">
+      Eco<span className="text-white">Roots</span>
     </span>
   </Link>
 );

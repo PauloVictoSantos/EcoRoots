@@ -3,7 +3,7 @@ import { Timeline } from "@/components/ui/timeline";
 export function TimelineSection() {
   const data = [
     {
-      title: "2024",
+      title: "1º Semana",
       content: (
         <div>
           <p className="mb-8 text-xs font-normal text-neutral-800 md:text-sm dark:text-neutral-200">
@@ -43,7 +43,7 @@ export function TimelineSection() {
       ),
     },
     {
-      title: "Early 2023",
+      title: "2º Semana",
       content: (
         <div>
           <p className="mb-8 text-xs font-normal text-neutral-800 md:text-sm dark:text-neutral-200">
@@ -88,7 +88,7 @@ export function TimelineSection() {
       ),
     },
     {
-      title: "Changelog",
+      title: "3º Semana",
       content: (
         <div>
           <p className="mb-4 text-xs font-normal text-neutral-800 md:text-sm dark:text-neutral-200">

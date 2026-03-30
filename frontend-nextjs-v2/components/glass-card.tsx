@@ -19,8 +19,8 @@ export function GlassCard({ children, className, hover = true, delay = 0 }: Glas
       transition={{ duration: 0.5, delay }}
       whileHover={hover ? { y: -5, transition: { duration: 0.2 } } : undefined}
       className={cn(
-        'glass-card rounded-2xl p-6 transition-all duration-300',
-        hover && 'hover:border-[#58D68D]/30 hover:shadow-[0_0_30px_rgba(88,214,141,0.1)]',
+        'bg-card rounded-2xl p-6 transition-all duration-300',
+        hover && 'hover:border-border hover:shadow-[0_0_30px_rgba(88,214,141,0.1)]',
         className
       )}
     >

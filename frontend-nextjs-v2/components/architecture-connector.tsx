@@ -2,177 +2,227 @@
 
 import { motion } from "motion/react";
 import { Cpu, Server, Monitor, Brain, Database, Leaf } from "lucide-react";
+import { DottedGlowBackground } from "./ui/dotted-glow-background";
 
 export function ArchitectureConnector() {
   return (
-    <div className="relative rounded-2xl overflow-hidden w-full max-w-250">
-      <div
-        className="absolute inset-0 opacity-[0.03]"
-        style={{
-          backgroundImage: `
-            linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)
-          `,
-          backgroundSize: "40px 40px",
-        }}
+    <div className="relative mt-20 rounded-2xl overflow-hidden w-full max-w-250">
+      <DottedGlowBackground
+        className="pointer-events-none mask-radial-to-90% mask-radial-at-center opacity-20 dark:opacity-100"
+        opacity={1}
+        gap={10}
+        radius={0.9}
+        colorLightVar="--color-neutral-500"
+        glowColorLightVar="--color-neutral-600"
+        colorDarkVar="--color-neutral-500"
+        glowColorDarkVar="--color-sky-800"
+        backgroundOpacity={0}
+        speedMin={0.1}
+        speedMax={0.5}
+        speedScale={1}
       />
 
-      {/* Status indicator */}
-      <div className="absolute top-4 right-4 flex items-center gap-2">
-        <span className="relative flex h-2 w-2">
-          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-          <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-        </span>
-        <span className="text-xs text-green-400/80">Sistema Ativo</span>
-      </div>
-
-      {/* Container com posições absolutas */}
-      <div className="relative h-[300px] w-full">
-        
-        {/* ===== ÍCONES ===== */}
-        
-        {/* Estufa - posição: left 0, center vertical */}
+      <div className="relative h-75 w-full justify-center items-center -ml-10 flex">
         <motion.div
-          initial={{ opacity: 0, x: -20 }}
+          initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0, duration: 0.4 }}
-          className="absolute left-0 top-1/2 -translate-y-1/2 flex items-center gap-3 z-10"
+          transition={{ delay: 0.1, duration: 0.4 }}
+          className="absolute left-22 top-1/2 -translate-y-1/2 flex flex-col items-center gap-2 z-10"
         >
-          <div className="w-14 h-14 rounded-xl bg-green-500/10 border border-green-500/30 flex items-center justify-center">
+          <div className="w-14 h-14 rounded-xl border border-green-500/30 flex items-center justify-center">
             <Leaf className="w-7 h-7 text-green-400" />
           </div>
-          <span className="text-sm text-white/70 font-medium">Estufa<br/>Inteligente</span>
+          <span className="text-sm font-medium">Estufa</span>
         </motion.div>
 
-        {/* ESP32 - posição: left 200px, center vertical */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1, duration: 0.4 }}
-          className="absolute left-[200px] top-1/2 -translate-y-1/2 flex flex-col items-center gap-2 z-10"
+          className="absolute left-61 top-1/2 -translate-y-1/2 flex flex-col items-center gap-2 z-10"
         >
           <div
-            className="w-14 h-14 rounded-xl bg-[#1a1a1a] border border-white/10 flex items-center justify-center"
-            style={{ boxShadow: "0 4px 20px rgba(0, 0, 0, 0.5)" }}
+            className="w-14 h-14 rounded-xl border border-green-500/30 flex items-center justify-center"
+            style={{ boxShadow: "0 4px 20px rgba(0, 0, 0, 0.5), 0 0 30px rgba(20, 100, 30, 0.17)" }}
           >
             <Cpu className="w-7 h-7 text-green-400" />
           </div>
-          <span className="text-xs text-white/60 font-medium">ESP32</span>
+          <span className="text-xs font-medium">ESP32</span>
         </motion.div>
 
-        {/* Backend - posição: left 400px, center vertical */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.4 }}
-          className="absolute left-[400px] top-1/2 -translate-y-1/2 flex flex-col items-center gap-2 z-10"
+          className="absolute left-100 top-1/2 -translate-y-1/2 flex flex-col items-center gap-2 z-10"
         >
           <div
-            className="w-14 h-14 rounded-xl bg-[#1a1a1a] border border-orange-500/30 flex items-center justify-center"
+            className="w-14 h-14 rounded-xl  border border-orange-500/30 flex items-center justify-center"
             style={{ boxShadow: "0 4px 20px rgba(0, 0, 0, 0.5), 0 0 30px rgba(249, 115, 22, 0.15)" }}
           >
             <Server className="w-7 h-7 text-orange-400" />
           </div>
-          <span className="text-xs text-white/60 font-medium">Backend</span>
+          <span className="text-xs font-medium">Backend</span>
         </motion.div>
 
-        {/* Frontend - posição: left 650px, top */}
         <motion.div
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.3, duration: 0.4 }}
-          className="absolute left-[650px] top-[30px] flex items-center gap-3 z-10"
+          className="absolute left-162.5 top-4.5 flex items-center gap-3 z-10"
         >
           <div
-            className="w-14 h-14 rounded-xl bg-[#1a1a1a] border border-white/10 flex items-center justify-center"
-            style={{ boxShadow: "0 4px 20px rgba(0, 0, 0, 0.5)" }}
+            className="w-14 h-14 rounded-xl  border border-blue-400 flex items-center justify-center"
+            style={{ boxShadow: "0 4px 20px rgba(10, 80, 100, 0.2)" }}
           >
             <Monitor className="w-7 h-7 text-blue-400" />
           </div>
-          <span className="text-xs text-white/60 font-medium">Frontend</span>
+          <span className="text-xs font-medium">Frontend</span>
         </motion.div>
 
-        {/* Python + IA - posição: left 650px, center */}
         <motion.div
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.4, duration: 0.4 }}
-          className="absolute left-[650px] top-1/2 -translate-y-1/2 flex items-center gap-3 z-10"
+          className="absolute left-162.5 bottom-26 -translate-y-1/2 flex items-center gap-3 z-10"
         >
           <div
-            className="w-14 h-14 rounded-xl bg-[#1a1a1a] border border-white/10 flex items-center justify-center"
-            style={{ boxShadow: "0 4px 20px rgba(0, 0, 0, 0.5)" }}
+            className="w-14 h-14 rounded-xl  border border-purple-400 flex items-center justify-center"
+            style={{ boxShadow: "0 4px 20px rgba(197, 43, 90, 0.2)" }}
           >
             <Brain className="w-7 h-7 text-purple-400" />
           </div>
           <div className="flex flex-col gap-1">
-            <span className="text-xs text-white/60 font-medium">Python + IA</span>
-            <span className="px-2 py-0.5 bg-blue-500/20 text-blue-400 text-[10px] rounded w-fit">Conectado</span>
+            <span className="text-xs font-medium">Python + IA</span>
           </div>
         </motion.div>
 
-        {/* Banco de Dados - posição: left 650px, bottom */}
         <motion.div
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.5, duration: 0.4 }}
-          className="absolute left-[650px] bottom-[30px] flex items-center gap-3 z-10"
+          className="absolute left-162.5 bottom-10.5 flex items-center gap-3 z-10"
         >
           <div
-            className="w-14 h-14 rounded-xl bg-[#1a1a1a] border border-white/10 flex items-center justify-center"
-            style={{ boxShadow: "0 4px 20px rgba(0, 0, 0, 0.5)" }}
+            className="w-14 h-14 rounded-xl  border border-cyan-400 flex items-center justify-center"
+            style={{ boxShadow: "0 4px 20px rgba(0,195,255,0.2)" }}
           >
             <Database className="w-7 h-7 text-cyan-400" />
           </div>
-          <span className="text-xs text-white/60 font-medium">Banco de Dados</span>
+          <span className="text-xs font-medium">Banco de Dados</span>
         </motion.div>
 
         {/* ===== LINHAS DE CONEXÃO ===== */}
-        
-        {/* Linha 1: Estufa (centro direito: ~110px) -> ESP32 (centro esquerdo: 200px) */}
-        {/* Y = 150px (centro) */}
-        <div 
-          className="absolute bg-gradient-to-r from-green-500/40 via-green-500/80 to-green-500/40"
-          style={{ left: 110, top: 150, width: 90, height: 1 }}
-        />
 
-        {/* Linha 2: ESP32 (centro direito: 214+56=270) -> Backend (centro esquerdo: 400px) */}
-        <div 
-          className="absolute bg-gradient-to-r from-green-500/40 via-green-500/80 to-green-500/40"
-          style={{ left: 257, top: 150, width: 143, height: 1 }}
-        />
+        {/* Linha 1 */}
+        <div
+          className="absolute bg-linear-to-r from-neutral-500/40 via-neutral-500/80 to-neutral-500/40 overflow-hidden"
+          style={{ left: 144, top: 138, width: 100, height: 1 }}
+        >
+          <motion.div
+            className="absolute top-0 left-0 h-full w-1/3 
+               bg-linear-to-r from-transparent via-green-700 to-transparent
+               shadow-[10px_0_25px_-3px_rgba(11,155, 49, 0.9)]"
+            animate={{ x: ["-100%", "250%"] }}
+            transition={{ repeat: Infinity, duration: 3, ease: "linear", delay: 0 }}
+          />
+        </div>
 
-        {/* Linha 3: Backend (centro direito: 400+56=456) -> ponto de junção (560px) */}
-        <div 
-          className="absolute bg-gradient-to-r from-green-500/40 via-green-500/80 to-green-500/40"
-          style={{ left: 457, top: 150, width: 100, height: 1 }}
-        />
+        {/* Linha 2 */}
+        <div
+          className="absolute bg-linear-to-r from-neutral-500/40 via-neutral-500/80 to-neutral-500/40 overflow-hidden"
+          style={{ left: 299, top: 138, width: 100, height: 1 }}
+        >
+          <motion.div
+            className="absolute top-0 left-0 h-full w-1/3 
+               bg-linear-to-r from-transparent via-green-500 to-transparent
+               shadow-[10px_0_25px_-3px_rgba(0, 255, 0, 0.9)]"
+            animate={{ x: ["-100%", "250%"] }}
+            transition={{ repeat: Infinity, duration: 3, ease: "linear", delay: 0.2 }}
+          />
+        </div>
 
-        {/* Linha vertical: conecta os 3 ícones da direita */}
-        {/* De Y=57 (centro Frontend) até Y=243 (centro Database) */}
-        <div 
-          className="absolute bg-gradient-to-b from-green-500/40 via-green-500/80 to-green-500/40"
-          style={{ left: 557, top: 57, width: 1, height: 186 }}
-        />
+        {/* Linha 3 */}
+        <div
+          className="absolute bg-linear-to-r from-neutral-500/40 via-neutral-500/80 to-neutral-500/40 overflow-hidden"
+          style={{ left: 456, top: 138, width: 100, height: 1 }}
+        >
+          <motion.div
+            className="absolute top-0 left-0 h-full w-1/3 
+               bg-linear-to-r from-transparent via-orange-500 to-transparent
+               shadow-[10px_0_25px_-3px_rgba(249, 115, 22, 0.9)]"
+            animate={{ x: ["-100%", "250%"] }}
+            transition={{ repeat: Infinity, duration: 3, ease: "linear", delay: 0.4 }}
+          />
+        </div>
 
-        {/* Linha 4: junção -> Frontend (centro esquerdo: 650px) */}
-        <div 
-          className="absolute bg-gradient-to-r from-green-500/60 to-green-500/30"
-          style={{ left: 557, top: 57, width: 93, height: 1 }}
-        />
+        {/* Linha vertical */}
+        <div
+          className="absolute bg-linear-to-b from-neutral-500/40 via-neutral-500/80 to-neutral-500/40 overflow-hidden"
+          style={{ left: 556, top: 45, width: 1, height: 94 }}
+        >
+          <motion.div
+            className="absolute top-0 left-0 w-full h-1/3 
+bg-linear-to-r from-transparent via-orange-500 to-transparent
+               shadow-[10px_0_25px_-3px_rgba(249, 115, 22, 0.9)]"
+            animate={{ y: ["250%", "-250%"] }}
+            transition={{ repeat: Infinity, duration: 4, ease: "linear", delay: 0.10 }}
+          />
+        </div>
+        <div
+          className="absolute bg-linear-to-b from-neutral-500/40 via-neutral-500/80 to-neutral-500/40 overflow-hidden"
+          style={{ left: 556, top: 138, width: 1, height: 94 }}
+        >
+          <motion.div
+            className="absolute top-0 left-0 w-full h-1/3 
+bg-linear-to-r from-transparent via-orange-500 to-transparent
+               shadow-[10px_0_25px_-3px_rgba(249, 115, 22, 0.9)]"
+            animate={{ y: ["-250%", "250%"] }}
+            transition={{ repeat: Infinity, duration: 3, ease: "linear", delay: 0.8 }}
+          />
+        </div>
 
-        {/* Linha 5: junção -> Python IA (centro esquerdo: 650px) */}
-        <div 
-          className="absolute bg-gradient-to-r from-green-500/60 to-green-500/30"
-          style={{ left: 557, top: 150, width: 93, height: 1 }}
-        />
+        {/* Linha 4 */}
+        <div
+          className="absolute bg-linear-to-r from-neutral-500/60 to-neutral-500/30 overflow-hidden"
+          style={{ left: 557, top: 46, width: 93, height: 1 }}
+        >
+          <motion.div
+            className="absolute top-0 left-0 h-full w-1/3 
+               bg-linear-to-r from-transparent via-blue-500 to-transparent
+               shadow-[10px_0_25px_-3px_rgba(59,130,246,0.9)]"
+            animate={{ x: ["-100%", "250%"] }}
+            transition={{ repeat: Infinity, duration: 3, ease: "linear", delay: 0.10 }}
+          />
+        </div>
 
-        {/* Linha 6: junção -> Database (centro esquerdo: 650px) */}
-        <div 
-          className="absolute bg-gradient-to-r from-green-500/60 to-green-500/30"
-          style={{ left: 557, top: 243, width: 93, height: 1 }}
-        />
+        {/* Linha 5 */}
+        <div
+          className="absolute bg-linear-to-r from-neutral-500/60 to-neutral-500/30 overflow-hidden"
+          style={{ left: 557, top: 138, width: 93, height: 1 }}
+        >
+          <motion.div
+            className="absolute top-0 left-0 h-full w-1/3 
+               bg-linear-to-r from-transparent via-purple-500 to-transparent
+               shadow-[10px_0_25px_-3px_rgba(197, 43, 90, 0.9)]"
+            animate={{ x: ["-100%", "250%"] }}
+            transition={{ repeat: Infinity, duration: 3, ease: "linear", delay: 0.10 }}
+          />
+        </div>
 
+        {/* Linha 6 */}
+        <div
+          className="absolute bg-linear-to-r from-neutral-500/60 to-neutral-500/30 overflow-hidden"
+          style={{ left: 557, top: 231, width: 93, height: 1 }}
+        >
+          <motion.div
+            className="absolute top-0 left-0 h-full w-1/3 
+               bg-linear-to-r from-transparent via-cyan-500 to-transparent
+               shadow-[10px_0_25px_-3px_rgba(0,195,255,0.9)]"
+            animate={{ x: ["-100%", "250%"] }}
+            transition={{ repeat: Infinity, duration: 4, ease: "linear", delay: 0.10 }}
+          />
+        </div>
       </div>
     </div>
   );
