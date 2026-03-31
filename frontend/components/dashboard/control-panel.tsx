@@ -18,7 +18,6 @@ interface ControlItem {
   enabled: boolean
   color: string
   bgColor: string
-  glowColor: string
 }
 
 function ControlButton({ 
@@ -43,21 +42,13 @@ function ControlButton({
           ? "border-transparent shadow-lg" 
           : "border-border hover:border-muted-foreground/30"
       )}
-      style={{
-        boxShadow: control.enabled 
-          ? `0 8px 30px -5px ${control.glowColor}` 
-          : undefined,
-      }}
     >
-      {/* Background glow when active */}
       {control.enabled && (
         <div
           className="absolute inset-0 rounded-2xl opacity-20"
-          style={{ backgroundColor: control.glowColor }}
         />
       )}
 
-      {/* 3D Icon */}
       <div
         className={cn(
           "relative flex h-14 w-14 items-center justify-center rounded-xl transition-all duration-300",
@@ -65,7 +56,7 @@ function ControlButton({
         )}
         style={{
           boxShadow: control.enabled
-            ? `0 8px 20px -5px ${control.glowColor}, inset 0 -3px 8px -3px rgba(0,0,0,0.2), inset 0 3px 8px -3px rgba(255,255,255,0.2)`
+            ? `inset 0 -3px 8px -3px rgba(0,0,0,0.2), inset 0 3px 8px -3px rgba(255,255,255,0.2)`
             : "inset 0 -2px 4px -2px rgba(0,0,0,0.1)",
           transform: isHovered ? "scale(1.1) translateY(-2px)" : "scale(1)",
         }}
@@ -119,7 +110,6 @@ export function ControlPanel({ className }: { className?: string }) {
       enabled: true,
       color: "text-amber-900 dark:text-amber-100",
       bgColor: "bg-amber-400",
-      glowColor: "rgba(251, 191, 36, 0.5)",
     },
     {
       id: "pump",
@@ -128,7 +118,6 @@ export function ControlPanel({ className }: { className?: string }) {
       enabled: false,
       color: "text-blue-900 dark:text-blue-100",
       bgColor: "bg-blue-400",
-      glowColor: "rgba(59, 130, 246, 0.5)",
     },
     {
       id: "fan",
@@ -136,8 +125,7 @@ export function ControlPanel({ className }: { className?: string }) {
       icon: Wind,
       enabled: true,
       color: "text-cyan-900 dark:text-cyan-100",
-      bgColor: "bg-cyan-400",
-      glowColor: "rgba(6, 182, 212, 0.5)",
+      bgColor: "bg-cyan-400"
     },
     {
       id: "heater",
@@ -146,7 +134,6 @@ export function ControlPanel({ className }: { className?: string }) {
       enabled: false,
       color: "text-red-900 dark:text-red-100",
       bgColor: "bg-red-400",
-      glowColor: "rgba(239, 68, 68, 0.5)",
     },
   ])
 
@@ -176,7 +163,7 @@ export function ControlPanel({ className }: { className?: string }) {
       <div
         className={cn(
           "pointer-events-none absolute inset-0 transition-opacity duration-500",
-          "bg-gradient-to-br from-primary/5 via-transparent to-transparent",
+          "bg-linear-to-br from-primary/5 via-transparent to-transparent",
           isHovered ? "opacity-100" : "opacity-0"
         )}
       />
@@ -186,9 +173,6 @@ export function ControlPanel({ className }: { className?: string }) {
           <CardTitle className="flex items-center gap-3 text-base font-semibold text-card-foreground">
             <div 
               className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 transition-all duration-300 group-hover:scale-110"
-              style={{
-                boxShadow: isHovered ? '0 8px 20px -5px rgba(93, 214, 44, 0.3)' : undefined
-              }}
             >
               <Power className="h-5 w-5 text-primary" />
             </div>

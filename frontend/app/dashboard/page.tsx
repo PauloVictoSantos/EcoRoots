@@ -55,7 +55,6 @@ export default function DashboardPage() {
             description="Ambiente interno"
             icon={Thermometer}
             iconColor="text-red-600 dark:text-red-400"
-            iconBgColor="bg-red-500"
             iconGlowColor="rgba(239, 68, 68, 0.5)"
             trend={sensorData.temperature > 25 ? "up" : sensorData.temperature < 22 ? "down" : "stable"}
             trendValue={sensorData.temperature > 25 ? "Acima do ideal" : sensorData.temperature < 22 ? "Abaixo do ideal" : "Ideal"}
@@ -67,8 +66,8 @@ export default function DashboardPage() {
             description="Umidade relativa"
             icon={Droplets}
             iconColor="text-blue-600 dark:text-blue-400"
-            iconBgColor="bg-blue-500"
-            iconGlowColor="rgba(59, 130, 246, 0.5)"
+            iconBgColor=""
+            iconGlowColor="rgba(59, 130, 246, 0.2)"
             trend={sensorData.humidity > 75 ? "up" : sensorData.humidity < 60 ? "down" : "stable"}
             trendValue={sensorData.humidity > 75 ? "Alta" : sensorData.humidity < 60 ? "Baixa" : "Ideal"}
           />
@@ -78,7 +77,6 @@ export default function DashboardPage() {
             description="Solução nutritiva"
             icon={FlaskConical}
             iconColor="text-emerald-600 dark:text-emerald-400"
-            iconBgColor="bg-emerald-500"
             iconGlowColor="rgba(16, 185, 129, 0.5)"
             trend={sensorData.ph > 6.5 ? "up" : sensorData.ph < 5.5 ? "down" : "stable"}
             trendValue={sensorData.ph > 6.5 ? "Alcalino" : sensorData.ph < 5.5 ? "Ácido" : "Neutro"}
@@ -90,7 +88,6 @@ export default function DashboardPage() {
             description="Condutividade elétrica"
             icon={Zap}
             iconColor="text-amber-600 dark:text-amber-400"
-            iconBgColor="bg-amber-500"
             iconGlowColor="rgba(245, 158, 11, 0.5)"
             trend={sensorData.ec > 2.0 ? "up" : sensorData.ec < 1.5 ? "down" : "stable"}
             trendValue={sensorData.ec > 2.0 ? "Alto" : sensorData.ec < 1.5 ? "Baixo" : "Ideal"}
@@ -102,7 +99,7 @@ export default function DashboardPage() {
             title="Temperatura"
             icon={<Thermometer className="h-4 w-4 text-red-500" />}
             dataKey="temperature"
-            color="#EF4444"
+            color="#EF2545"
             gradientId="temperatureGradient"
             unit="°C"
             minValue={15}
@@ -136,7 +133,6 @@ export default function DashboardPage() {
           />
         </div>
 
-        {/* Status and Controls - Side by side */}
         <div className="grid gap-4 lg:grid-cols-2">
           <PlantStatusCard
             status="healthy"

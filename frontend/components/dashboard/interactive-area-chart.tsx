@@ -139,7 +139,7 @@ export function InteractiveAreaChart({
       <div
         className={cn(
           "pointer-events-none absolute inset-0 transition-opacity duration-500",
-          "bg-gradient-to-br from-primary/3 via-transparent to-transparent",
+          "bg-linear-to-br from-primary/3 via-transparent to-transparent",
           isHovered ? "opacity-100" : "opacity-0"
         )}
       />
@@ -148,17 +148,13 @@ export function InteractiveAreaChart({
         <div className="flex items-center justify-between">
           <CardTitle className="flex items-center gap-3 text-sm font-semibold text-card-foreground">
             <div
-              className="flex h-9 w-9 items-center justify-center rounded-xl transition-all duration-300 group-hover:scale-110"
-              style={{ 
-                backgroundColor: `${color}20`,
-                boxShadow: isHovered ? `0 8px 20px -5px ${color}40` : undefined
-              }}
+              className="flex h-12 w-12 items-center justify-center rounded-xl transition-all duration-300 group-hover:scale-110 bg-primary/5"
             >
               {icon}
             </div>
             {title}
           </CardTitle>
-          <div className="flex gap-1 rounded-lg bg-muted/50 p-1">
+          <div className="flex gap-1 rounded-lg bg-50 p-1">
             {(["1h", "6h", "24h", "7d"] as TimeRange[]).map((range) => (
               <Button
                 key={range}
@@ -169,7 +165,7 @@ export function InteractiveAreaChart({
                   "h-6 px-2 text-[10px] font-medium transition-all duration-200",
                   timeRange === range
                     ? "bg-card text-card-foreground shadow-sm"
-                    : "text-muted-foreground hover:text-foreground"
+                    : "text-foreground hover:text-foreground"
                 )}
               >
                 {range}
@@ -188,14 +184,14 @@ export function InteractiveAreaChart({
           >
             {currentValue}{unit}
           </span>
-          <span className="text-sm text-muted-foreground">
+          <span className="text-sm text-foreground">
             média {avgValue}{unit}
           </span>
         </div>
       </CardHeader>
 
       <CardContent className="pb-4 pt-2">
-        <div className="h-[140px] w-full">
+        <div className="h-35 w-full">
           <ResponsiveContainer width="100%" height="100%">
             <AreaChart data={data} margin={{ top: 5, right: 5, left: -25, bottom: 0 }}>
               <defs>
@@ -212,21 +208,21 @@ export function InteractiveAreaChart({
               />
               <XAxis
                 dataKey="time"
-                stroke="hsl(var(--muted-foreground))"
+                stroke="hsl(var(--foreground))"
                 fontSize={9}
                 tickLine={false}
                 axisLine={false}
                 interval="preserveStartEnd"
-                tick={{ fill: 'hsl(var(--muted-foreground))' }}
+                tick={{ fill: 'hsl(var(--foreground))' }}
               />
               <YAxis
-                stroke="hsl(var(--muted-foreground))"
+                stroke="hsl(var(--foreground))"
                 fontSize={9}
                 tickLine={false}
                 axisLine={false}
                 domain={[minValue ?? "auto", maxValue ?? "auto"]}
                 tickFormatter={(value) => `${value}`}
-                tick={{ fill: 'hsl(var(--muted-foreground))' }}
+                tick={{ fill: 'hsl(var(--foreground))' }}
                 width={35}
               />
               <Tooltip
@@ -234,12 +230,12 @@ export function InteractiveAreaChart({
                   backgroundColor: "hsl(var(--card))",
                   borderColor: "hsl(var(--border))",
                   borderRadius: "12px",
-                  color: "hsl(var(--card-foreground))",
+                  color: "hsl(var(--foreground))",
                   boxShadow: "0 10px 40px rgba(0,0,0,0.2)",
                   padding: "8px 12px",
                 }}
                 labelStyle={{ 
-                  color: "hsl(var(--muted-foreground))", 
+                  color: "hsl(var(--foreground))", 
                   marginBottom: "4px",
                   fontSize: "11px"
                 }}

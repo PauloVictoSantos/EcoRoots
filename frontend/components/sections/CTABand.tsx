@@ -23,7 +23,7 @@ export default function CTABand() {
               Acesse o dashboard em tempo real ou explore o gêmeo digital 3D da estufa.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/estufa"
+              <Link href="/dashboard/estufa"
                 className="px-8 py-4 rounded-2xl bg-linear-to-r from-[#1E8449] to-[#145A32] hover:from-[#58D68D] hover:to-[#1E8449] text-white font-semibold transition-all duration-300 shadow-xl shadow-[#1E8449]/30">
                 Ver Estufa 3D
               </Link>

@@ -101,7 +101,6 @@ function Icon3D({
         transformStyle: 'preserve-3d',
       }}
     >
-      {/* Shadow layer */}
       <div
         className={cn(
           "absolute inset-0 rounded-2xl opacity-40 blur-lg transition-all duration-500",
@@ -112,7 +111,6 @@ function Icon3D({
         }}
       />
       
-      {/* Main icon container */}
       <div
         className={cn(
           "relative flex h-full w-full items-center justify-center rounded-2xl transition-all duration-500",
@@ -125,7 +123,6 @@ function Icon3D({
           transform: 'translateZ(0)',
         }}
       >
-        {/* Highlight */}
         <div 
           className="absolute inset-0 rounded-2xl opacity-50"
           style={{
@@ -192,7 +189,7 @@ export function MetricCard({
         }}
       />
 
-      <CardContent className="relative p-6">
+      <CardContent className="relative px-6 py-2">
         <div className="flex items-start justify-between gap-4">
           <div className="flex-1 space-y-3">
             <p className="text-sm font-medium text-muted-foreground">{title}</p>

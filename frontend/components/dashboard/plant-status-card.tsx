@@ -64,25 +64,6 @@ export function PlantStatusCard({
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Glow effect on hover */}
-      <div
-        className={cn(
-          "pointer-events-none absolute inset-0 transition-opacity duration-500",
-          "bg-gradient-to-br from-primary/5 via-transparent to-transparent",
-          isHovered ? "opacity-100" : "opacity-0"
-        )}
-      />
-      
-      {/* Light beam effect */}
-      <div
-        className={cn(
-          "pointer-events-none absolute -inset-px transition-all duration-700",
-          "bg-gradient-to-r from-transparent via-primary/20 to-transparent",
-          "translate-x-[-200%] skew-x-12",
-          isHovered && "translate-x-[200%]"
-        )}
-      />
-
       <CardHeader className="relative pb-3">
         <CardTitle className="flex items-center gap-2 text-base font-semibold text-card-foreground">
           <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary/10 transition-all duration-300 group-hover:scale-110">
@@ -181,7 +162,7 @@ export function PlantStatusCard({
       <div
         className={cn(
           "absolute bottom-0 left-0 right-0 h-0.5 transition-all duration-500",
-          "bg-gradient-to-r from-transparent via-primary to-transparent",
+          "bg-linear-to-r from-transparent via-primary to-transparent",
           isHovered ? "opacity-100" : "opacity-0"
         )}
       />

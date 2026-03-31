@@ -97,7 +97,7 @@ export function AboutSection() {
               variant="default"
               className="border-border hover:text-foreground text-foreground rounded-xl"
             >
-              <Link href="/estufa">
+              <Link href="/dashboard/estufa">
                 Veja a Estufa
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Link>
