@@ -9,10 +9,10 @@ const geistSans = Geist({ subsets: ['latin'], variable: '--font-geist-sans' })
 const geistMono = Geist_Mono({ subsets: ['latin'], variable: '--font-geist-mono' })
 
 export const metadata: Metadata = {
-  title: 'Smart Greenhouse | Estufa Inteligente Amazônica',
+  title: 'EcoRoots | Estufa Inteligente Amazônica',
   description: 'Monitoramento em tempo real com IA Gemini Vision, ESP32 e gêmeo digital 3D. Sistema inspirado na biodiversidade da Amazônia.',
   keywords: ['estufa inteligente', 'IoT', 'ESP32', 'Gemini IA', 'agricultura', 'monitoramento', 'Next.js'],
-  authors: [{ name: 'Smart Greenhouse Team' }],
+  authors: [{ name: 'EcoRoots Team' }],
 }
 
 export const viewport: Viewport = {
