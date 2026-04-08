@@ -34,9 +34,10 @@ export default function AboutSection() {
               </span>
             </motion.h2>
             <motion.p {...fadeUp(0.2)} className="text-[#9CA3AF] text-lg leading-relaxed mb-8">
-              O Smart Greenhouse integra sensores ESP32, visão computacional com Gemini IA
-              e um gêmeo digital 3D para monitorar e otimizar cada aspecto do crescimento
-              das plantas — temperatura, umidade, solo, pragas e doenças.
+              Inspirado na biodiversidade da Amazônia, o projeto nasceu da necessidade de tornar
+              o cultivo mais preciso e sustentável. Com IoT, IA e um gêmeo digital 3D,
+              entregamos visibilidade total sobre a saúde das plantas — em tempo real,
+              de qualquer lugar.
             </motion.p>
             <motion.div {...fadeUp(0.3)} className="grid grid-cols-2 gap-4 mb-8">
               {[

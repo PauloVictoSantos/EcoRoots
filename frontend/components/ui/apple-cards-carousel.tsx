@@ -2,7 +2,7 @@
 import React, { useEffect, useRef, useState, createContext, useContext } from "react";
 import { motion, AnimatePresence, useScroll, useTransform } from "motion/react";
 import { cn } from "@/lib/utils";
-import { X } from "lucide-react";
+import { LuX as X } from "react-icons/lu";
 
 interface CardData { src: string; title: string; category: string; content: React.ReactNode; }
 

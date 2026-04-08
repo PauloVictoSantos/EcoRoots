@@ -13,7 +13,9 @@ const fadeUp = (delay = 0) => ({
 
 interface TimelineEntry { title: string; content: React.ReactNode; }
 
-export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
+export const 
+
+Timeline = ({ data }: { data: TimelineEntry[] }) => {
   const ref = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [height, setHeight] = useState(0);
@@ -34,13 +36,11 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
         <motion.span {...fadeUp(0)} className="inline-block text-xs font-semibold tracking-widest text-[#58D68D] uppercase mb-4">
           Desevolvimento
         </motion.span>
-        <motion.h2 {...fadeUp(0.1)} className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
-          Tecnologia para{' '}
-          <span className="text-transparent bg-clip-text bg-linear-to-r from-[#58D68D] to-[#1E8449]">
-            Agricultura Inteligente
-          </span>
+        <motion.h2 {...fadeUp(0.1)} className="mb-4 bg-linear-to-r from-foreground via-amazon-dark to-amazon-highlight bg-clip-text text-5xl font-extrabold leading-tight text-transparent sm:text-6xl">
+          Processo de{' '}
+            Desevolvimento
         </motion.h2>
-        <motion.p {...fadeUp(0.2)} className="text-[#9CA3AF] text-lg leading-relaxed mb-8">
+        <motion.p {...fadeUp(0.2)} className="text-foreground text-lg leading-relaxed mb-8">
           O Smart Greenhouse integra sensores ESP32, visão computacional com Gemini IA
           e um gêmeo digital 3D para monitorar e otimizar cada aspecto do crescimento
           das plantas — temperatura, umidade, solo, pragas e doenças.

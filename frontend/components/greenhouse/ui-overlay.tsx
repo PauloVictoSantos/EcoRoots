@@ -157,7 +157,7 @@ export function UIOverlay({
             className="absolute top-4 left-1/2 -translate-x-1/2 z-30 max-w-xs">
             <div className="glass-card rounded-xl px-4 py-2 flex items-center gap-2"
               style={{ borderColor: `${alertColor}30` }}>
-              <Brain className="w-4 h-4 flex-shrink-0" style={{ color: alertColor }} />
+              <Brain className="w-4 h-4 shrink-0" style={{ color: alertColor }} />
               <p className="text-xs font-medium truncate" style={{ color: alertColor }}>
                 {analysis.oneLiner}
               </p>

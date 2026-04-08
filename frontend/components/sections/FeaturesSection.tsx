@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 import { TerminalDemo } from "./TerminalDevSection";
 import { SocialOrbit } from "../social-orbit";
 import { ArchitectureConnector } from "../architecture-connector";
+import GreenhouseFront from "./estufa";
 
 
 const fadeUp = (delay = 0) => ({
@@ -49,16 +50,14 @@ export function FeaturesSection() {
   ];
 
   return (
-    <div id="recuso" className="relative z-20 mx-auto max-w-7xl py-20 lg:py-40">
+    <div id="recursos" className="relative z-20 mx-auto max-w-7xl py-20 lg:py-40">
       <div>
         <motion.span {...fadeUp(0)} className="inline-block text-xs font-semibold tracking-widest text-[#58D68D] uppercase mb-4">
           Projeto
         </motion.span>
-        <motion.h2 {...fadeUp(0.1)} className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
-          Detalhes{' '}
-          <span className="text-transparent bg-clip-text bg-linear-to-r from-[#58D68D] to-[#1E8449]">
-            sobre
-          </span>
+        <motion.h2 {...fadeUp(0.1)} className="mb-4 bg-linear-to-r from-foreground via-amazon-dark to-amazon-highlight bg-clip-text text-5xl font-extrabold leading-tight text-transparent sm:text-6xl">
+          Como o {' '}
+            Sistema Funciona
         </motion.h2>
         <motion.p {...fadeUp(0.2)} className="text-[#9CA3AF] text-lg leading-relaxed mb-8">
           O Smart Greenhouse integra sensores ESP32, visão computacional com Gemini IA
@@ -86,6 +85,7 @@ export function FeaturesSection() {
 const SkeletonPipeline = () => {
   return (
     <div className="flex items-center justify-center">
+      <GreenhouseFront mode={undefined} />
     </div>
   );
 };

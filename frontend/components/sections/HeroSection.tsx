@@ -4,9 +4,8 @@ import { useRef } from 'react'
 import Link from 'next/link'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import {
-ArrowRight, Play
+ArrowRight, Eye
 } from 'lucide-react'
-import { FloatingLeaves } from '@/components/floating-leaves'
 
 export default function HeroSection() {
   const ref = useRef(null)
@@ -15,14 +14,12 @@ export default function HeroSection() {
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0])
 
   return (
-    <section id='about' ref={ref} className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section id='inicio' ref={ref} className="relative min-h-screen flex items-center justify-center overflow-hidden">
       <motion.div style={{ y, opacity }} className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,#145A32_0%,transparent_65%)] opacity-60" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_80%_80%,#0B3D2E_0%,transparent_60%)] opacity-40" />
-        <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(circleL, rgba(88,214,141,0.04) 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
+        <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(circle, rgba(88,214,141,0.04) 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
       </motion.div>
-
-      <FloatingLeaves />
 
       <div className="relative z-10 container mx-auto px-4 text-center pt-24">
         <motion.div
@@ -67,11 +64,11 @@ export default function HeroSection() {
         >
           <Link href="/estufa"
             className="group flex items-center gap-2 px-8 py-4 rounded-2xl bg-linear-to-r from-primary to-secondary hover:from-primary hover:to-secondary text-foreground font-semibold text-base transition-all duration-300 shadow-xl shadow-[#1E8449]/30 hover:shadow-[#58D68D]/30 hover:-translate-y-0.5">
-            <Play className="w-4 h-4" />Ver Estufa ao Vivo
+            <Eye className="w-4 h-4" />Ver Estufa ao Vivo
             <ArrowRight className="w-4 h-4 translate-x-0 group-hover:translate-x-1 transition-transform" />
           </Link>
           <Link href="/dashboard"
-            className="flex items-center gap-2 px-8 py-4 rounded-2xl border border-border hover:bg- text-foreground font-semibold text-base transition-all duration-300 hover:-translate-y-0.5">
+            className="flex items-center gap-2 px-8 py-4 rounded-2xl border border-border hover:bg-white/5 text-foreground font-semibold text-base transition-all duration-300 hover:-translate-y-0.5">
             Dashboard
             <ArrowRight className="w-4 h-4" />
           </Link>
@@ -97,7 +94,7 @@ export default function HeroSection() {
         className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
       >
         <motion.div animate={{ y: [0, 8, 0] }} transition={{ duration: 1.6, repeat: Infinity }}
-          className="w-6 h-10 rounded-full border-2 border-border0 flex items-start justify-center p-1.5">
+          className="w-6 h-10 rounded-full border-2 border-border flex items-start justify-center p-1.5">
           <motion.div animate={{ opacity: [1, 0, 1], y: [0, 10, 0] }} transition={{ duration: 1.6, repeat: Infinity }}
             className="w-1.5 h-1.5 rounded-full bg-primary" />
         </motion.div>

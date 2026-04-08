@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { motion } from "motion/react";
-import { Check, Copy } from "lucide-react";
+import { LuCheck as Check, LuCopy as Copy } from "react-icons/lu";
 import { cn } from "@/lib/utils";
 
 interface CodeBlockProps {

@@ -10,9 +10,10 @@ import {
   MobileNavToggle,
   MobileNavMenu,
 } from "@/components/ui/resizable-navbar";
-import { Moon, Sun } from "lucide-react";
+import { LuMoon, LuSun } from "react-icons/lu";
 import { useTheme } from "next-themes";
 import { useState } from "react";
+import { Moon, Sun } from "lucide-react";
 
 export function Navigation() {
   const navItems = [
@@ -25,8 +26,8 @@ export function Navigation() {
       link: "#about",
     },
     {
-      name: "Recuso",
-      link: "#recuso",
+      name: "Recursos",
+      link: "#recursos",
     },
     {
       name: "Desevolvimento",
@@ -41,7 +42,7 @@ export function Navigation() {
       link: "#galeria",
     },
     {
-      name: "Materias",
+      name: "Materiais",
       link: "#materias",
     },
   ];

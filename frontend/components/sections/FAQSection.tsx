@@ -30,14 +30,14 @@ export default function FAQSection() {
   return (
     <section className="py-28">
       <div className="container mx-auto px-4 max-w-5xl">
-        <div className='text-center py-1  0'>
+        <div className='text-center py-10'>
           <motion.span
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="inline-block text-xs font-semibold tracking-widest text-accent uppercase mb-4"
           >
-            FAQ
+            Dúvidas Técnicas
           </motion.span>
 
           <motion.h2
@@ -45,11 +45,11 @@ export default function FAQSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-balance"
+            className="text-3xl md:text-5xl lg:text-7xl font-bold mb-6 text-balance"
           >
-            Perguntas 
-            <span className="text-transparent bg-clip-text bg-linear-to-r from-primary to-secondary">
-            Frequentes
+            Antes de Plantar,{' '}
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-primary via-secondary to-amazon-dark">
+              Leia Isso
             </span>
           </motion.h2>
 
@@ -60,7 +60,7 @@ export default function FAQSection() {
             transition={{ delay: 0.2 }}
             className="text-muted-foreground text-lg leading-relaxed mb-10"
           >
-            Tudo que você precisa saber
+            Do firmware ao modelo de IA — as perguntas que todo engenheiro agrícola deveria fazer.
           </motion.p>
         </div>
 

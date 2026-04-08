@@ -1,150 +1,129 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import { Timeline } from "@/components/ui/timeline";
+import { TimelineMediaGrid } from "@/components/timeline-media-grid";
+import { fetchWeeks, type WeekData } from "@/lib/drive";
+
+const WEEK_DESCRIPTIONS: Record<string, React.ReactNode> = {
+  "Semana 1": (
+    <>
+      <p className="mb-3">
+        Definição do escopo do projeto e primeira reunião de alinhamento
+        da equipe. Estabelecemos os objetivos do <strong>Smart Greenhouse</strong>{" "}
+        e dividimos as frentes de trabalho.
+      </p>
+      <ul className="list-disc space-y-1 pl-5">
+        <li>Pesquisa sobre sistemas hidropônicos NFT e DWC</li>
+        <li>Levantamento de componentes: ESP32, DHT11, GUVA-S12S</li>
+        <li>Criação do repositório e estrutura inicial do Next.js</li>
+        <li>Design do banner e identidade visual do projeto</li>
+      </ul>
+    </>
+  ),
+
+  "Semana 2": (
+    <>
+      <p className="mb-3">
+        Montagem física da estufa e primeiros testes dos sensores.
+        Começamos a integração entre hardware e backend.
+      </p>
+      <ul className="list-disc space-y-1 pl-5">
+        <li>Corte e montagem da estrutura de madeira</li>
+        <li>Instalação dos sensores no ESP32</li>
+        <li>Primeiros testes de leitura de umidade e temperatura</li>
+      </ul>
+    </>
+  ),
+
+  "Semana 3": (
+    <>
+      <p className="mb-3">
+        Desenvolvimento do sistema de câmera XY e início da integração
+        com IA para detecção de pragas.
+      </p>
+      <ul className="list-disc space-y-1 pl-5">
+        <li>Montagem do gantry XY com motores de passo</li>
+        <li>Calibração do eixo de movimentação</li>
+        <li>Testes iniciais com a API do Gemini Vision</li>
+      </ul>
+    </>
+  ),
+
+  "Semana 4": (
+    <>
+      <p className="mb-3">
+        Finalização do frontend, visualização 3D e testes finais do
+        sistema completo.
+      </p>
+      <ul className="list-disc space-y-1 pl-5">
+        <li>Polimento do gêmeo digital 3D em Three.js</li>
+        <li>Dashboard de monitoramento em tempo real</li>
+        <li>Testes integrados hardware + software + IA</li>
+      </ul>
+    </>
+  ),
+};
+
+// Fallback caso você adicione uma pasta nova e esqueça de escrever aqui
+const DEFAULT_DESCRIPTION = (
+  <p className="italic text-neutral-500">
+    Descrição em breve.
+  </p>
+);
 
 export function TimelineSection() {
-  const data = [
-    {
-      title: "1º Semana",
-      content: (
-        <div>
-          <p className="mb-8 text-xs font-normal text-neutral-800 md:text-sm dark:text-neutral-200">
-            Built and launched Aceternity UI and Aceternity UI Pro from scratch
-          </p>
-          <div className="grid grid-cols-2 gap-4">
-            <img
-              src="https://assets.aceternity.com/templates/startup-1.webp"
-              alt="startup template"
-              width={500}
-              height={500}
-              className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,42,53,0.06),0_1px_1px_rgba(0,0,0,0.05),0_0_0_1px_rgba(34,42,53,0.04),0_0_4px_rgba(34,42,53,0.08),0_16px_68px_rgba(47,48,55,0.05),0_1px_0_rgba(255,255,255,0.1)_inset] md:h-44 lg:h-60"
-            />
-            <img
-              src="https://assets.aceternity.com/templates/startup-2.webp"
-              alt="startup template"
-              width={500}
-              height={500}
-              className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,42,53,0.06),0_1px_1px_rgba(0,0,0,0.05),0_0_0_1px_rgba(34,42,53,0.04),0_0_4px_rgba(34,42,53,0.08),0_16px_68px_rgba(47,48,55,0.05),0_1px_0_rgba(255,255,255,0.1)_inset] md:h-44 lg:h-60"
-            />
-            <img
-              src="https://assets.aceternity.com/templates/startup-3.webp"
-              alt="startup template"
-              width={500}
-              height={500}
-              className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,42,53,0.06),0_1px_1px_rgba(0,0,0,0.05),0_0_0_1px_rgba(34,42,53,0.04),0_0_4px_rgba(34,42,53,0.08),0_16px_68px_rgba(47,48,55,0.05),0_1px_0_rgba(255,255,255,0.1)_inset] md:h-44 lg:h-60"
-            />
-            <img
-              src="https://assets.aceternity.com/templates/startup-4.webp"
-              alt="startup template"
-              width={500}
-              height={500}
-              className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,42,53,0.06),0_1px_1px_rgba(0,0,0,0.05),0_0_0_1px_rgba(34,42,53,0.04),0_0_4px_rgba(34,42,53,0.08),0_16px_68px_rgba(47,48,55,0.05),0_1px_0_rgba(255,255,255,0.1)_inset] md:h-44 lg:h-60"
-            />
-          </div>
+  const [weeks, setWeeks] = useState<WeekData[] | null>(null);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    fetchWeeks()
+      .then(setWeeks)
+      .catch((err) => {
+        console.error("[TimelineSection] erro:", err);
+        setError(err.message);
+      });
+  }, []);
+
+  if (error) {
+    return (
+      <div id="desevolvimento" className="relative w-full py-20 text-center">
+        <p className="text-red-400">Erro: {error}</p>
+      </div>
+    );
+  }
+
+  if (!weeks) {
+    return (
+      <div id="desevolvimento" className="relative w-full py-20 text-center">
+        <p className="text-neutral-400">Carregando timeline...</p>
+      </div>
+    );
+  }
+
+  const data = weeks.map((week) => ({
+    title: week.title,
+    content: (
+      <div>
+        <div className="mb-6 text-sm leading-relaxed text-neutral-700 md:text-base dark:text-neutral-300">
+          {WEEK_DESCRIPTIONS[week.title] ?? DEFAULT_DESCRIPTION}
         </div>
-      ),
-    },
-    {
-      title: "2º Semana",
-      content: (
-        <div>
-          <p className="mb-8 text-xs font-normal text-neutral-800 md:text-sm dark:text-neutral-200">
-            I usually run out of copy, but when I see content this big, I try to
-            integrate lorem ipsum.
-          </p>
-          <p className="mb-8 text-xs font-normal text-neutral-800 md:text-sm dark:text-neutral-200">
-            Lorem ipsum is for people who are too lazy to write copy. But we are
-            not. Here are some more example of beautiful designs I built.
-          </p>
-          <div className="grid grid-cols-2 gap-4">
-            <img
-              src="https://assets.aceternity.com/pro/hero-sections.png"
-              alt="hero template"
-              width={500}
-              height={500}
-              className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,42,53,0.06),0_1px_1px_rgba(0,0,0,0.05),0_0_0_1px_rgba(34,42,53,0.04),0_0_4px_rgba(34,42,53,0.08),0_16px_68px_rgba(47,48,55,0.05),0_1px_0_rgba(255,255,255,0.1)_inset] md:h-44 lg:h-60"
-            />
-            <img
-              src="https://assets.aceternity.com/features-section.png"
-              alt="feature template"
-              width={500}
-              height={500}
-              className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,42,53,0.06),0_1px_1px_rgba(0,0,0,0.05),0_0_0_1px_rgba(34,42,53,0.04),0_0_4px_rgba(34,42,53,0.08),0_16px_68px_rgba(47,48,55,0.05),0_1px_0_rgba(255,255,255,0.1)_inset] md:h-44 lg:h-60"
-            />
-            <img
-              src="https://assets.aceternity.com/pro/bento-grids.png"
-              alt="bento template"
-              width={500}
-              height={500}
-              className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,42,53,0.06),0_1px_1px_rgba(0,0,0,0.05),0_0_0_1px_rgba(34,42,53,0.04),0_0_4px_rgba(34,42,53,0.08),0_16px_68px_rgba(47,48,55,0.05),0_1px_0_rgba(255,255,255,0.1)_inset] md:h-44 lg:h-60"
-            />
-            <img
-              src="https://assets.aceternity.com/cards.png"
-              alt="cards template"
-              width={500}
-              height={500}
-              className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,42,53,0.06),0_1px_1px_rgba(0,0,0,0.05),0_0_0_1px_rgba(34,42,53,0.04),0_0_4px_rgba(34,42,53,0.08),0_16px_68px_rgba(47,48,55,0.05),0_1px_0_rgba(255,255,255,0.1)_inset] md:h-44 lg:h-60"
-            />
-          </div>
-        </div>
-      ),
-    },
-    {
-      title: "3º Semana",
-      content: (
-        <div>
-          <p className="mb-4 text-xs font-normal text-neutral-800 md:text-sm dark:text-neutral-200">
-            Deployed 5 new components on Aceternity today
-          </p>
-          <div className="mb-8">
-            <div className="flex items-center gap-2 text-xs text-neutral-700 md:text-sm dark:text-neutral-300">
-              ✅ Card grid component
-            </div>
-            <div className="flex items-center gap-2 text-xs text-neutral-700 md:text-sm dark:text-neutral-300">
-              ✅ Startup template Aceternity
-            </div>
-            <div className="flex items-center gap-2 text-xs text-neutral-700 md:text-sm dark:text-neutral-300">
-              ✅ Random file upload lol
-            </div>
-            <div className="flex items-center gap-2 text-xs text-neutral-700 md:text-sm dark:text-neutral-300">
-              ✅ Himesh Reshammiya Music CD
-            </div>
-            <div className="flex items-center gap-2 text-xs text-neutral-700 md:text-sm dark:text-neutral-300">
-              ✅ Salman Bhai Fan Club registrations open
-            </div>
-          </div>
-          <div className="grid grid-cols-2 gap-4">
-            <img
-              src="https://assets.aceternity.com/pro/hero-sections.png"
-              alt="hero template"
-              width={500}
-              height={500}
-              className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,42,53,0.06),0_1px_1px_rgba(0,0,0,0.05),0_0_0_1px_rgba(34,42,53,0.04),0_0_4px_rgba(34,42,53,0.08),0_16px_68px_rgba(47,48,55,0.05),0_1px_0_rgba(255,255,255,0.1)_inset] md:h-44 lg:h-60"
-            />
-            <img
-              src="https://assets.aceternity.com/features-section.png"
-              alt="feature template"
-              width={500}
-              height={500}
-              className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,42,53,0.06),0_1px_1px_rgba(0,0,0,0.05),0_0_0_1px_rgba(34,42,53,0.04),0_0_4px_rgba(34,42,53,0.08),0_16px_68px_rgba(47,48,55,0.05),0_1px_0_rgba(255,255,255,0.1)_inset] md:h-44 lg:h-60"
-            />
-            <img
-              src="https://assets.aceternity.com/pro/bento-grids.png"
-              alt="bento template"
-              width={500}
-              height={500}
-              className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,42,53,0.06),0_1px_1px_rgba(0,0,0,0.05),0_0_0_1px_rgba(34,42,53,0.04),0_0_4px_rgba(34,42,53,0.08),0_16px_68px_rgba(47,48,55,0.05),0_1px_0_rgba(255,255,255,0.1)_inset] md:h-44 lg:h-60"
-            />
-            <img
-              src="https://assets.aceternity.com/cards.png"
-              alt="cards template"
-              width={500}
-              height={500}
-              className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,42,53,0.06),0_1px_1px_rgba(0,0,0,0.05),0_0_0_1px_rgba(34,42,53,0.04),0_0_4px_rgba(34,42,53,0.08),0_16px_68px_rgba(47,48,55,0.05),0_1px_0_rgba(255,255,255,0.1)_inset] md:h-44 lg:h-60"
-            />
-          </div>
-        </div>
-      ),
-    },
-  ];
+        <p className="mb-6 text-xs font-medium text-[#58D68D]/80">
+          {week.files.length} arquivo{week.files.length !== 1 ? "s" : ""} registrado{week.files.length !== 1 ? "s" : ""}
+        </p>
+        <TimelineMediaGrid files={week.files} />
+      </div>
+    ),
+  }));
+
+  if (data.length === 0) {
+    return (
+      <div id="desevolvimento" className="relative w-full py-20 text-center">
+        <p className="text-neutral-400">Nenhuma semana encontrada.</p>
+      </div>
+    );
+  }
+
   return (
     <div id="desevolvimento" className="relative w-full overflow-clip">
       <Timeline data={data} />

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
-import { Cpu, Server, Monitor, Brain, Database, Leaf } from "lucide-react";
+import { LuCpu, LuServer, LuMonitor, LuBrain, LuDatabase, LuLeaf } from "react-icons/lu";
 import { DottedGlowBackground } from "./ui/dotted-glow-background";
 
 export function ArchitectureConnector() {
@@ -30,7 +30,7 @@ export function ArchitectureConnector() {
           className="absolute left-22 top-1/2 -translate-y-1/2 flex flex-col items-center gap-2 z-10"
         >
           <div className="w-14 h-14 rounded-xl border border-green-500/30 flex items-center justify-center">
-            <Leaf className="w-7 h-7 text-green-400" />
+            <LuLeaf className="w-7 h-7 text-green-400" />
           </div>
           <span className="text-sm font-medium">Estufa</span>
         </motion.div>
@@ -45,7 +45,7 @@ export function ArchitectureConnector() {
             className="w-14 h-14 rounded-xl border border-green-500/30 flex items-center justify-center"
             style={{ boxShadow: "0 4px 20px rgba(0, 0, 0, 0.5), 0 0 30px rgba(20, 100, 30, 0.17)" }}
           >
-            <Cpu className="w-7 h-7 text-green-400" />
+            <LuCpu className="w-7 h-7 text-green-400" />
           </div>
           <span className="text-xs font-medium">ESP32</span>
         </motion.div>
@@ -60,7 +60,7 @@ export function ArchitectureConnector() {
             className="w-14 h-14 rounded-xl  border border-orange-500/30 flex items-center justify-center"
             style={{ boxShadow: "0 4px 20px rgba(0, 0, 0, 0.5), 0 0 30px rgba(249, 115, 22, 0.15)" }}
           >
-            <Server className="w-7 h-7 text-orange-400" />
+            <LuServer className="w-7 h-7 text-orange-400" />
           </div>
           <span className="text-xs font-medium">Backend</span>
         </motion.div>
@@ -75,7 +75,7 @@ export function ArchitectureConnector() {
             className="w-14 h-14 rounded-xl  border border-blue-400 flex items-center justify-center"
             style={{ boxShadow: "0 4px 20px rgba(10, 80, 100, 0.2)" }}
           >
-            <Monitor className="w-7 h-7 text-blue-400" />
+            <LuMonitor className="w-7 h-7 text-blue-400" />
           </div>
           <span className="text-xs font-medium">Frontend</span>
         </motion.div>
@@ -90,7 +90,7 @@ export function ArchitectureConnector() {
             className="w-14 h-14 rounded-xl  border border-purple-400 flex items-center justify-center"
             style={{ boxShadow: "0 4px 20px rgba(197, 43, 90, 0.2)" }}
           >
-            <Brain className="w-7 h-7 text-purple-400" />
+            <LuBrain className="w-7 h-7 text-purple-400" />
           </div>
           <div className="flex flex-col gap-1">
             <span className="text-xs font-medium">Python + IA</span>
@@ -107,7 +107,7 @@ export function ArchitectureConnector() {
             className="w-14 h-14 rounded-xl  border border-cyan-400 flex items-center justify-center"
             style={{ boxShadow: "0 4px 20px rgba(0,195,255,0.2)" }}
           >
-            <Database className="w-7 h-7 text-cyan-400" />
+            <LuDatabase className="w-7 h-7 text-cyan-400" />
           </div>
           <span className="text-xs font-medium">Banco de Dados</span>
         </motion.div>
